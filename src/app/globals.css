@@ -1,10 +1,88 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
 
-/* Global reset */
-html,
-body {
-  margin: 0;
-  padding: 0;
+:root {
+  --background: #ffffff;
+  --foreground: #09090b;
+  --muted: #71717a;
+  --border: rgba(0, 0, 0, 0.08);
+  --glass: rgba(255, 255, 255, 0.8);
+  --accent: #6366f1;
+  --accent-foreground: #ffffff;
+  --card: #ffffff;
+}
+
+.bg-surface-dark {
+  --background: #09090b;
+  --foreground: #fafafa;
+  --muted: #a1a1aa;
+  --border: rgba(255, 255, 255, 0.1);
+  --glass: rgba(9, 9, 11, 0.8);
+  --accent: #6366f1;
+  --accent-foreground: #ffffff;
+  --card: #18181b;
+}
+
+@theme {
+  --color-brand-primary: var(--accent);
+  --color-brand-secondary: #8b5cf6;
+  --color-surface-dark: #09090b;
+  --color-surface-card: var(--card);
+  --color-text-muted: var(--muted);
+
+  --font-sans: "Inter", "Geist", "SF Pro Display", -apple-system, sans-serif;
+  --font-mono: "Geist Mono", "SF Mono", "Fira Code", monospace;
+}
+
+@layer base {
+
+  html,
+  body {
+    background-color: var(--background);
+    color: var(--foreground);
+    @apply m-0 p-0 font-sans antialiased selection:bg-brand-primary/30;
+    scroll-behavior: smooth;
+    transition: background-color 0.5s cubic-bezier(0.4, 0, 0.2, 1), color 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    color: var(--foreground);
+    transition: color 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+}
+
+@layer utilities {
+  .glass {
+    background-color: var(--glass);
+    backdrop-filter: blur(12px) border-box;
+    border: 1px solid var(--border);
+  }
+
+  .glass-card {
+    background-color: var(--card);
+    border: 1px solid var(--border);
+    box-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
+    @apply transition-all duration-300;
+  }
+
+  .glass-card:hover {
+    border-color: var(--accent);
+    box-shadow: 0 10px 30px -10px rgba(99, 102, 241, 0.15);
+  }
+
+  .text-gradient {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-[var(--foreground)] to-[var(--muted)];
+  }
+
+  .bg-gradient-mesh {
+    background-image:
+      radial-gradient(at 0% 0%, rgba(99, 102, 241, 0.15) 0, transparent 50%),
+      radial-gradient(at 100% 0%, rgba(139, 92, 246, 0.1) 0, transparent 50%),
+      radial-gradient(at 100% 100%, rgba(99, 102, 241, 0.15) 0, transparent 50%),
+      radial-gradient(at 0% 100%, rgba(139, 92, 246, 0.1) 0, transparent 50%);
+  }
 }

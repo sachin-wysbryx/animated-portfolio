@@ -1,36 +1,61 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🚀 Premium Full-Stack Developer Portfolio
 
-## Getting Started
+A high-performance, minimalist portfolio designed for professional software engineers. This project focuses on refined aesthetics, high-quality animations, and a seamless user experience across light and dark themes.
 
-First, run the development server:
+---
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## 📖 About the Project
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+This portfolio is a showcase of technical expertise and design sensibility. It's built to be **data-driven**, meaning all content (experience, projects, skills) is centralized in a single configuration file, making it extremely easy to maintain and update. The design follows "Senior Engineer" principles: clean, efficient, and content-focused.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## 🛠️ Tech Stack
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- **Framework**: [Next.js 15+](https://nextjs.org/) (App Router, Turbopack)
+- **Styling**: [Tailwind CSS 4.0](https://tailwindcss.com/) (Using modern `@import` configuration)
+- **Animations**: [Framer Motion 12](https://www.framer.com/motion/) (Staggered reveals, hover effects, AnimatePresence)
+- **Smooth Scrolling**: [Lenis](https://lenis.darkroom.engineering/) (Liquid-smooth scroll behavior)
+- **Language**: [TypeScript](https://www.typescriptlang.org/) (Strict type-safety)
+- **Deployment**: Optimized for [Vercel](https://vercel.com/)
 
-## Learn More
+---
 
-To learn more about Next.js, take a look at the following resources:
+## 📂 Project Structure: Which is Where?
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Knowing where to find things is key to maintaining this project. Here is the architectural breakdown:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### 🏛️ Core App (`src/app/`)
+- `layout.tsx`: The root shell. Contains the **SmoothScroll** wrapper, **Navbar**, and global font configurations.
+- `page.tsx`: The main entry point. Orchestrates all page sections (`Hero`, `About`, `Skills`, etc.) and handles the **Global Theme Switching** logic.
+- `globals.css`: The heart of the design system. Defines **CSS Variables** for Light/Dark modes, glassmorphism utilities, and the dynamic mesh background.
 
-## Deploy on Vercel
+### 🍱 Components (`src/components/`)
+- `/layout`: Permanent UI elements like the **Floating Navbar** and the **SmoothScroll** provider.
+- `/sections`: The individual blocks of the page. Each file is self-contained (e.g., `Hero.tsx`, `Projects.tsx`).
+- `/ui`: Reusable interface elements like the **ThemeToggle**.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### ⚙️ Logic & Data (`src/lib/` & `src/types/`)
+- `lib/profile.ts`: **The Master Config**. Change your name, email, projects, or skills here, and the entire site updates instantly.
+- `types/`: Custom TypeScript declarations (e.g., for Lenis) to ensure no build errors.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+### 🖼️ Assets (`public/`)
+- `projects/`: Store project screenshots here.
+- `Sachinrv2002(resume).pdf`: Your downloadable resume.
+
+---
+
+## 🚀 Deployment
+
+1.  Push to GitHub.
+2.  Connect to Vercel.
+3.  Set zero environment variables (unless you want to customize Formspree farther).
+4.  **Done.**
+
+## ⚙️ Features
+
+- **Pill-Navbar**: A floating, dynamic navbar that shrinks and blurs on scroll.
+- **Theme Logic**: Full support for system-preference-aware Dark and Light modes.
+- **Production Ready**: Optimized images, minimal bundle size, and SEO friendly.
+
+---
+
+Developed with precision by **Sachin RV**.

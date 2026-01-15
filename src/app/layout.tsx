@@ -1,5 +1,6 @@
 import "./globals.css";
 import Navbar from "@/components/layout/Navbar";
+import SmoothScroll from "@/components/layout/SmoothScroll";
 
 export const metadata = {
   title: "Sachin RV | Full Stack Developer",
@@ -14,8 +15,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className="antialiased">
-        <Navbar />
-        {children}
+        <SmoothScroll>
+          <Navbar />
+          {children}
+        </SmoothScroll>
       </body>
     </html>
   );

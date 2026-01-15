@@ -1,26 +1,31 @@
 "use client";
 
+import { useState } from "react";
+import { motion } from "framer-motion";
+
 export default function ThemeToggle({
   onChange,
 }: {
   onChange: (theme: string) => void;
 }) {
   const themes = {
-    dark: "bg-black text-white",
-    light: "bg-white text-black",
-    neo: "bg-gradient-to-br from-purple-600 to-black text-white",
+    dark: { class: "bg-surface-dark text-white", icon: "🌙" },
+    light: { class: "bg-white text-black", icon: "☀️" },
   };
 
   return (
-    <div className="flex gap-2">
-      {Object.keys(themes).map((key) => (
-        <button
+    <div className="flex gap-1 p-1 bg-[var(--background)]/50 backdrop-blur-md rounded-full border border-[var(--border)] shadow-lg">
+      {Object.entries(themes).map(([key, value]) => (
+        <motion.button
           key={key}
-          onClick={() => onChange(themes[key as keyof typeof themes])}
-          className="px-4 py-2 text-xs rounded-full border border-gray-500 hover:bg-white hover:text-black transition"
+          whileHover={{ scale: 1.05 }}
+          whileTap={{ scale: 0.95 }}
+          onClick={() => onChange(value.class)}
+          className="w-10 h-10 flex items-center justify-center rounded-full hover:bg-[var(--foreground)]/5 transition-all text-lg"
+          title={key}
         >
-          {key}
-        </button>
+          {value.icon}
+        </motion.button>
       ))}
     </div>
   );
