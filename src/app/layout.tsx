@@ -2,8 +2,8 @@ import "./globals.css";
 import Navbar from "@/components/layout/Navbar";
 
 export const metadata = {
-  title: "Sachin | Creative Developer",
-  description: "Next-level animated portfolio",
+  title: "Sachin RV | Full Stack Developer",
+  description: "Creative Full Stack Developer Portfolio",
 };
 
 export default function RootLayout({
@@ -13,7 +13,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className="bg-black text-white antialiased">
+      <body className="antialiased">
         <Navbar />
         {children}
       </body>
